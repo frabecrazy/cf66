@@ -285,7 +285,7 @@ def show_main():
             total_prod += prod_per_year
             total_eol += eol_impact
 
-            col_confirm, col_remove = st.columns([1, 1])
+            col_confirm, col_remove = st.columns([2, 6, 1])
 
             with col_confirm:
                 confirm_key = f"confirm_{device_id}"
@@ -768,4 +768,5 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
 
