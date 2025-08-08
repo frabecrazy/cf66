@@ -305,7 +305,14 @@ def show_main():
                             "shared": shared,
                             "eol": eol
                         }
-                        st.session_state.device_expanders[device_id] = False
+                        # 👇 Assicurati che i nuovi valori aggiornati chiudano la tendina
+                        if all([
+                            used in ["New", "Used"],
+                            shared in ["Personal", "Shared"],
+                            eol in eol_modifier
+                        ]):
+                            st.session_state.device_expanders[device_id] = False
+
                         st.rerun()
 
             with col_remove:
@@ -767,6 +774,7 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
 
 
 
