@@ -262,8 +262,14 @@ def show_main():
                 eol_index = eol_options.index(prev["eol"]) if prev["eol"] in eol_options else 0
                 eol = st.selectbox("", eol_options, index=eol_index, key=f"{device_id}_eol")
 
-
-            if st.session_state.device_expanders.get(device_id, True):
+            if all([
+                used in ["New", "Used"],
+                shared in ["Personal", "Shared"],
+                eol in eol_modifier
+            ]):
+                st.session_state.device_expanders[device_id] = False
+                expanded = False
+            else:
                 open_expanders += 1
 
             impact = device_ef[base_device] if base_device in device_ef else 0
@@ -761,6 +767,7 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
 
 
 
