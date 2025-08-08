@@ -385,23 +385,16 @@ def show_main():
     for i, (task, ef) in enumerate(ai_factors.items()):
         with cols[i % 4]:
             st.markdown(f"""
+            <div style='margin-bottom: 12px;'>
                 <div style='
-                    background-color: #f8fdfc;
-                    border-radius: 12px;
-                    padding: 12px 16px;
-                    margin-bottom: 16px;
-                    border: 1px solid #d3f3e1;
-                    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+                    font-weight: 600;
+                    font-size: 15px;
+                    color: #1d3557;
+                    margin-bottom: 6px;
                 '>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div style='
-                            font-weight: 600;
-                            font-size: 15px;
-                            color: #1d3557;
-                        '>
-                            {task}
-                        </div>
-            """, unsafe_allow_html=True)
+                    {task}
+                </div>
+        """, unsafe_allow_html=True)
 
             q = st.number_input(
                 label="",
@@ -768,6 +761,7 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
 
 
 
