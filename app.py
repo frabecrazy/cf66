@@ -360,6 +360,8 @@ def show_main():
     with email_col2:
         email_attach = st.selectbox("Emails (with attachments)", email_opts, index=0, key="email_attach")
 
+    cloud = st.selectbox("Cloud storage used per account", cloud_opts, index=0, key="cloud")
+    
     wifi = st.slider("Estimated daily Wi-Fi connection time", 0.0, 8.0, 4.0, 0.5)
     pages = st.number_input("Printed pages per day", 0, 100, 0)
 
@@ -766,3 +768,4 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
