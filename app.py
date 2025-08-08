@@ -401,7 +401,7 @@ def show_main():
                 min_value=0,
                 max_value=100,
                 value=0,
-                step=1,
+                step=5,
                 key=task,
                 label_visibility="collapsed"
             )
@@ -761,6 +761,7 @@ elif st.session_state.page == "main":
     show_main()
 elif st.session_state.page == "results":
     show_results()
+
 
 
 
